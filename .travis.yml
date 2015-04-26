@@ -8,6 +8,7 @@ before_install:
     - ./install-boost.sh
     - export BOOST_ROOT=$PWD/boost-trunk:${BOOST_ROOT}
     - export ROOT_CONFIG_EXECUTABLE=/usr/bin
+    - export ROOTSYS=/usr
     - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty main'
     - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
     - sudo apt-get update -qq
