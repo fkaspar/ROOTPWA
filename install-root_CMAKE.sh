@@ -1,5 +1,6 @@
 #!/bin/bash
 set -exv
+echo $PATH
 wget http://root.cern.ch/download/root_v5.34.30.source.tar.gz
 tar -xzf root_v5.34.30.source.tar.gz
 mkdir build_root
