@@ -7,12 +7,16 @@ before_install:
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./install-boost.sh
     - export BOOST_ROOT=$PWD/boost-trunk:${BOOST_ROOT}
+    - sudo add-apt-repositroy 'deb http://archive.ubuntu.com/ubuntu/ trusty main'
+    - sudo add-apt-repositroy 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
     - sudo apt-get update -qq
     - sudo apt-get install -y git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
     - sudo apt-get install -y gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev cfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
-install:    
-    - ./install-root_BINARY.sh
-    - . ./root/bin/thisroot.sh
+    - sudo apt-get install -y root-system root-plugin-math-minuit2
+    - . thisroot.sh
+#install:    
+    #- ./install-root_BINARY.sh
+    #- . ./root/bin/thisroot.sh
 before_script:
     - export ROOTPWA=$PWD
 script:
