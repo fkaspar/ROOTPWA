@@ -1,8 +1,8 @@
 language: cpp
 before_install:
     - ./install-libconfig.sh
-    - export LIBCONFIG=$PWD/libconfig/libconfig_install:${LIBCONFIG}
-    - export LD_LIBRARY_PATH=${LIBCONFIG}/lib:${LD_LIBRARY_PATH}
+    - export LIBCONFIG=$PWD/libconfig/libconfig_install
+    - export LD_LIBRARY_PATH=${LIBCONFIG}/lib
     - ./install-cmake.sh
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./install-boost.sh
