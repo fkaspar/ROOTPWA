@@ -15,6 +15,7 @@ before_install:
     - sudo apt-get install -y root-system root-plugin-math-minuit2
     - echo $ROOTSYS
     - ls /usr/bin/ | grep root
+    - export ROOT_CONFIG_EXECUTABLE = /usr/bin
     #- . thisroot.sh
 #install:    
     #- ./install-root_BINARY.sh
