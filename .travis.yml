@@ -7,6 +7,7 @@ before_install:
     #- export PATH=$PWD/cmake/bin:${PATH}
     #- ./install-boost.sh
     #- export BOOST_ROOT=$PWD/boost-trunk:${BOOST_ROOT}
+    - export ROOT_CONFIG_EXECUTABLE=/usr/bin
     - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty main'
     - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
     - sudo apt-get update -qq
@@ -15,7 +16,6 @@ before_install:
     - sudo apt-get install -y root-system root-plugin-math-minuit2
     - echo $ROOTSYS
     - ls /usr/bin/ | grep root
-    - export ROOT_CONFIG_EXECUTABLE = /usr/bin
     #- . thisroot.sh
 #install:    
     #- ./install-root_BINARY.sh
