@@ -7,6 +7,7 @@ before_install:
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./install-boost.sh
     - export BOOST_ROOT=$PWD/boost-trunk:${BOOST_ROOT}
+    - ./compileBoostLibraries.sh
     #- export ROOT_CONFIG_EXECUTABLE=/usr/bin
     #- sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty main'
     #- sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
