@@ -115,7 +115,7 @@ main(int    argc,
 	printInfo << "opening bin file '" << inputBinFilePath << "'." << endl;
 	ifstream* binFile = new ifstream();
 	binFile->open(inputBinFilePath.c_str());
-	vector<complex<double>> binAmps(0);
+	vector<complex<double> > binAmps(0);
 	unsigned int evt = 0;
 
 	while(not binFile->eof()) {
@@ -153,7 +153,7 @@ main(int    argc,
 	rpwa::amplitudeTreeLeaf* leaf = 0;
 	tree->SetBranchAddress("amplitude", &leaf);
 	const int nmbEvt = tree->GetEntries();
-	vector<complex<double>> rootAmps(nmbEvt, 0);
+	vector<complex<double> > rootAmps(nmbEvt, 0);
 	for (int evt = 0; evt < nmbEvt; evt++) {
 		tree->GetEvent(evt);
 		const unsigned int nmbSubAmps = leaf->nmbIncohSubAmps();
