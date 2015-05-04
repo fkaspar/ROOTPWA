@@ -1,6 +1,6 @@
 #!/bin/bash
 set -exv
-git clone https://github.com/ned14/boost-trunk.git
-cd boost-trunk
-git checkout release/Boost_1_58_0
+git clone https://github.com/boostorg/boost
+cd boost
+git checkout boost-1.56.0
 
