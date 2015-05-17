@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e 
+set -exv 
 
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
