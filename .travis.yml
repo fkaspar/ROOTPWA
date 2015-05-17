@@ -18,7 +18,7 @@ before_install:
     - export YAML_CPP=$PWD/yaml-cpp-install
     - export LD_LIBRARY_PATH=${YAML_CPP}/lib:${LD_LIBRARY_PATH}
     - ./travisCI/install-root.sh
-    - . ./root/bin/thisroot.sh
+    - . ./root-6.02.08/bin/thisroot.sh
     - export ROOTPWA=$PWD
 install:
     - cd ${ROOTPWA}/build
