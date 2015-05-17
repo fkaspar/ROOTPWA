@@ -17,8 +17,9 @@ before_install:
     - ./travisCI/install-cmake.sh
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./travisCI/install-boost.sh
-    - export BOOST_ROOT=$PWD/boost_1_58_0
-    - ./compileBoostLibraries.sh
+    - export BOOST_ROOT=$PWD/boost_1_58_0_bin
+    #- export BOOST_ROOT=$PWD/boost_1_58_0
+    #- ./compileBoostLibraries.sh
     - ./travisCI/install-libconfig.sh
     - export LIBCONFIG=$PWD/libconfig_install
     - export LD_LIBRARY_PATH=${LIBCONFIG}/lib:${LD_LIBRARY_PATH}
