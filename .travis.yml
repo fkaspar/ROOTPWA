@@ -1,4 +1,7 @@
 language: cpp
+env:
+    - ROOT_VER='6.02.08' GCC_VER='4.8'
+    - ROOT_VER='5.34.30' GCC_VER='4.6'
 #compiler:
 #    - clang
 #    - gcc
@@ -8,6 +11,9 @@ before_install:
     - sudo apt-get update -qq
     - sudo apt-get install -y git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
     - sudo apt-get install -y gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev cfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
+    
+    - if[ "$GCC_VER"="4.8" ]; then sudo apt-get install python-software-properties; sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y;  sudo apt-get update -qq; sudo apt-get install gcc-4.8; sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50; fi
+    
     - ./travisCI/install-cmake.sh
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./travisCI/install-boost.sh
@@ -20,7 +26,7 @@ before_install:
     - export YAML_CPP=$PWD/yaml-cpp-install
     - export LD_LIBRARY_PATH=${YAML_CPP}/lib:${LD_LIBRARY_PATH}
     - ./travisCI/install-root.sh
-    - . ./root-6.02.08/bin/thisroot.sh
+    - . ./root-$ROOT_VER/bin/thisroot.sh
     - export ROOTPWA=$PWD
 install:
     - cd ${ROOTPWA}/build
