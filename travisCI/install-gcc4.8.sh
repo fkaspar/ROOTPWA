@@ -2,7 +2,7 @@
 set -exv 
 
 sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 sudo apt-get update -qq
 sudo apt-get install gcc-4.8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
