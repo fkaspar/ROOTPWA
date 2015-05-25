@@ -1,9 +1,14 @@
 language: cpp
+
+compiler:
+    - clang
+    - gcc
+
 env:
     matrix:
-        - ROOT_VER='6.02.08' GCC_VER='4.8' CC=clang CXX=clang++
-        - ROOT_VER='5.34.30' GCC_VER='4.6' CC=gcc CXX=g++
-        - ROOT_VER='5.34.30' GCC_VER='4.8' CC=gcc CXX=g++
+        - ROOT_VER='6.02.08' GCC_VER='4.8'
+        - ROOT_VER='5.34.30' GCC_VER='4.6'
+        - ROOT_VER='5.34.30' GCC_VER='4.8'
 
     
 #compiler:
@@ -22,9 +27,12 @@ matrix:
 before_install:
     #- echo $CC
     #- echo $CXX
+    ##- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise-backports main restricted universe multiverse"
     - sudo apt-get update -qq
     - sudo apt-get install -y git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
     - sudo apt-get install -y gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev cfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
+    ##- sudo apt-get install -y yaml-cpp
+    
     
     - if [ "$GCC_VER" = "4.8" ]; then ./travisCI/install-gcc4.8.sh; fi
     
@@ -40,6 +48,7 @@ before_install:
     - ./travisCI/install-yaml-cpp.sh
     - export YAML_CPP=$PWD/yaml-cpp-install
     - export LD_LIBRARY_PATH=${YAML_CPP}/lib:${LD_LIBRARY_PATH}
+    - ./travisCI/install-nlopt.sh
     - ./travisCI/install-root.sh
     - . ./root-$ROOT_VER/bin/thisroot.sh
     - export ROOTPWA=$PWD
