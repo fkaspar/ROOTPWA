@@ -1,8 +1,9 @@
 language: cpp
 env:
-    - ROOT_VER='6.02.08' GCC_VER='4.8'
-    - ROOT_VER='5.34.30' GCC_VER='4.6'
-    - ROOT_VER='5.34.30' GCC_VER='4.8'
+    global:
+        - ROOT_VER='6.02.08' GCC_VER='4.8'
+        - ROOT_VER='5.34.30' GCC_VER='4.6'
+        - ROOT_VER='5.34.30' GCC_VER='4.8'
 
     
 compiler:
