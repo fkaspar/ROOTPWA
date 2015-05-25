@@ -10,8 +10,7 @@ compiler:
 #    - gcc
 matrix:
     exclude:
-        - compiler: clang 
-          env: ROOT_VER=5.34.30
+        - env: ROOT_VER=5.34.30
 before_install:
     #- echo $CC
     #- echo $CXX
