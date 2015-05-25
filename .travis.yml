@@ -33,8 +33,8 @@ before_install:
     - sudo apt-get install -y gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev cfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
     ##- sudo apt-get install -y yaml-cpp
     
-    
-    - if [ "$GCC_VER" = "4.8" ]; then ./travisCI/install-gcc4.8.sh; fi
+    - ./travisCI/install-gcc4.8.sh
+    - if [ "$GCC_VER" = "4.8" ]; then ./travisCI/set-gcc4.8.sh; fi
     
     - ./travisCI/install-cmake.sh
     - export PATH=$PWD/cmake/bin:${PATH}
