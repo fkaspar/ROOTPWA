@@ -1,13 +1,9 @@
 language: cpp
-#env:
-#    - ROOT_VER='6.02.08' GCC_VER='4.8'
-#    - ROOT_VER='5.34.30' GCC_VER='4.6'
-#    - ROOT_VER='5.34.30' GCC_VER='4.8'
 env:
-    - ROOT_VER='6.02.08'
-    - ROOT_VER='5.34.30'
-    - GCC_VER='4.6'
-    - GCC_VER='4.8'
+    - ROOT_VER='6.02.08' GCC_VER='4.8'
+    - ROOT_VER='5.34.30' GCC_VER='4.6'
+    - ROOT_VER='5.34.30' GCC_VER='4.8'
+
     
 compiler:
     - clang
@@ -21,7 +17,7 @@ compiler:
 matrix:
     exclude:
         - env: ROOT_VER='6.02.08'
-          env: GCC_VER='4.6'
+          env: GCC_VER='4.8'
 
 before_install:
     #- echo $CC
