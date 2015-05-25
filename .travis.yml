@@ -1,13 +1,14 @@
 language: cpp
 env:
-    - ROOT_VER='6.02.08' GCC_VER='4.8'
-    - ROOT_VER='5.34.30' GCC_VER='4.6'
-    - ROOT_VER='5.34.30' GCC_VER='4.8'
+    matrix:
+        - ROOT_VER='6.02.08' GCC_VER='4.8' CC=clang CXX=clang++
+        - ROOT_VER='5.34.30' GCC_VER='4.6' CC=gcc CXX=g++
+        - ROOT_VER='5.34.30' GCC_VER='4.8' CC=gcc CXX=g++
 
     
-compiler:
-    - clang
-    - gcc
+#compiler:
+#    - clang
+#    - gcc
 #compiler:
 #    - gcc
 #matrix:
