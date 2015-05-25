@@ -11,7 +11,8 @@ compiler:
 matrix:
     exclude:
         - compiler: clang 
-        env: ROOT_VER='5.34.30' GCC_VER='4.6'
+          env: ROOT_VER='5.34.30' 
+          env: GCC_VER='4.6'
 before_install:
     #- echo $CC
     #- echo $CXX
