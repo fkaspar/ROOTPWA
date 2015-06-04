@@ -10,29 +10,14 @@ env:
         - ROOT_VER='5.34.30' GCC_VER='4.6'
         - ROOT_VER='5.34.30' GCC_VER='4.8'
 
-    
-#compiler:
-#    - clang
-#    - gcc
-#compiler:
-#    - gcc
-#matrix:
-#   exclude:
-#        - env: ROOT_VER=5.34.30
-
 matrix:
     exclude:
         - env: ROOT_VER='6.02.08'
 
 before_install:
-    #- echo $CC
-    #- echo $CXX
-    ##- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu precise-backports main restricted universe multiverse"
     - sudo apt-get update -qq
     - sudo apt-get install -y git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
     - sudo apt-get install -y gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev cfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
-    ##- sudo apt-get install -y yaml-cpp
-    
     - ./travisCI/install-gcc4.8.sh
     - if [ "$GCC_VER" = "4.8" ]; then ./travisCI/set-gcc4.8.sh; fi
     
@@ -40,8 +25,6 @@ before_install:
     - export PATH=$PWD/cmake/bin:${PATH}
     - ./travisCI/install-boost.sh
     - export BOOST_ROOT=$PWD/boost_1_58_0
-    #- export BOOST_ROOT=$PWD/boost_1_58_0
-    #- ./compileBoostLibraries.sh
     - ./travisCI/install-libconfig.sh
     - export LIBCONFIG=$PWD/libconfig_install
     - export LD_LIBRARY_PATH=${LIBCONFIG}/lib:${LD_LIBRARY_PATH}
@@ -52,12 +35,21 @@ before_install:
     - ./travisCI/install-root.sh
     - . ./root-$ROOT_VER/bin/thisroot.sh
     - export ROOTPWA=$PWD
+    - export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
 install:
     - cd ${ROOTPWA}/build
     - cmake ..
     - make
-before_script: echo "before_script nop"
-script: echo "script nop"
+before_script: 
+    - echo "before_script"
+    - export PYTHONPATH=${ROOTPWA}/build/pyLib:${PYTHONPATH}
+    - export PATH=${ROOTPWA}/build/bin:${PATH}
+    - export LD_LIBRARY_PATH=${ROOTPWA}/build/lib:${LD_LIBRARY_PATH}
+script:
+    - echo "script"
+    - cd ${ROOTPWA}/pyInterface
+    - python ./testPyRootPwa.py
+
 cache: apt
 #notifications:
 #    email:
