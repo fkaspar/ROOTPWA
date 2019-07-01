@@ -245,6 +245,13 @@ namespace rpwa {
 					        + 1404728325L) + 18261468225LL);
 			}
 			break;
+               case 16:  // L = 8
+                       {
+                               const double z3 = z * z * z;
+                               bf2 = (4392846440677LL * z3 * z3 * z * z)
+                                       / (z * (z * (z * (z * (z * (z * (z* (z + 36) + 1890) + 103950) + 5457375) + 255405150L) + 9833098275LL) + 273922023375) + 4108830350625LL  );
+                       }
+                       break;
 		default:
 			printDebug << "calculation of Blatt-Weisskopf barrier factor is not (yet) implemented for L = "
 			           << spinQn(L) << ". returning 0." << std::endl;
